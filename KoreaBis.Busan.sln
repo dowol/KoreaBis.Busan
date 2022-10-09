@@ -5,7 +5,14 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoreaBis.Busan", "KoreaBis.Busan\KoreaBis.Busan.csproj", "{B9D93F40-4811-4D07-AB66-A17F5FFD1CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreaBis.Busan.Test", "KoreaBis.Busan.Test\KoreaBis.Busan.Test.csproj", "{8C068A1D-3687-4625-9290-9EE0775B089D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoreaBis.Busan.Test", "KoreaBis.Busan.Test\KoreaBis.Busan.Test.csproj", "{8C068A1D-3687-4625-9290-9EE0775B089D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project Root", "Project Root", "{FCB8E686-6110-4908-A2F1-C425E0DDD100}"
+	ProjectSection(SolutionItems) = preProject
+		README.en.md = README.en.md
+		README.ko.md = README.ko.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
