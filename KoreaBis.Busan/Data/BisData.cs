@@ -1,11 +1,5 @@
-﻿using KoreaBis.Busan.Utilities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
+﻿using System;
 using System.Text;
-using System.Xml;
 
 namespace KoreaBis.Busan.Data
 {
@@ -38,7 +32,49 @@ namespace KoreaBis.Busan.Data
 
         public override string ToString()
         {
-            return $"{Latitude}, {Longitude}";
+            return ToString("dec:n");
         }
+        
+        public string ToString(string? format, IFormatProvider? fp = null)
+        {
+            switch (format?.ToLower())
+            {
+                case "dms":
+                case "dms:c":
+                    throw new NotImplementedException();
+
+                case "dms:n":
+                    throw new NotImplementedException();
+
+                default:
+                    StringBuilder sb = new StringBuilder();
+
+                    if (Latitude > 0) sb.Append("N ");
+                    else if (Latitude < 0) sb.Append("S ");
+                    sb.AppendFormat("{0:#.000000}", Math.Abs(Latitude));
+                    sb.Append(", ");
+                    if (Longitude > 0) sb.Append("E ");
+                    else if (Longitude < 0) sb.Append("W ");
+                    sb.AppendFormat("{0:#.000000}", Math.Abs(Longitude));
+
+                    return sb.ToString();
+
+                case "dec:c":
+                    return $"{Latitude}, {Longitude}";
+
+            }
+        }
+    }
+
+    public enum BusDirection : byte
+    {
+        ToTerminalPoint,
+        ToStartingPoint
+    }
+    
+    public enum NodeType : byte
+    {
+        Junction,
+        BusStop = 3
     }
 }
