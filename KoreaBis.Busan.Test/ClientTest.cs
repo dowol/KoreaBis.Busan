@@ -6,32 +6,34 @@ namespace KoreaBis.Busan.Test
     [TestClass]
     public class ClientTest
     {
-        //BusanBisClient bis = new("BoRlu05tzlDrYGVIIps53DsQovckCrsL%2BG9JDFY%2B7avHmvWrX7Xcv%2F%2BeaKY6ZbwjnIPQCTkwUbN9t%2FI30h87ow%3D%3D");
-        BusanBisClient bis = new("Borlu05tzlDrYGVIIps53DsQovckCrsL%2BG9JDFY%2B7avHmvWrX7Xcv%2F%2BeaKY6ZbwjnIPQCTkwUbN9t%2FI30h87ow%3D%3D");
+        private readonly BusanBisClient bis
+            = new("Borlu05tzlDrYGVIIps53DsQovckCrsL%2BG9JDFY%2B7avHmvWrX7Xcv%2F%2BeaKY6ZbwjnIPQCTkwUbN9t%2FI30h87ow%3D%3D");
 
 
-        [TestMethod]
+        [TestMethod] // OK
         public async Task GetBusStopList()
         {
             BusStopListResponseData busStopList = 
                 await bis.GetBusStopList(new() { CountPerPage = 30, BusStopName = "부산외국어대학교" });
             busStopList.WriteToConsole();
-            
         }
 
-        //[TestMethod]
+        [TestMethod] // OK
         public async Task GetBusInfo()
         {
-            foreach(BusInfoResponseData info in await bis.GetBusInfo(new() { BusName = "80" }))
+            foreach(BusInfoResponseData info in await bis.GetBusInfo(new() { BusName = "심야" }))
             {
                 info.WriteToConsole();
             }
         }
 
-        //[TestMethod]
+        [TestMethod] // OK
         public async Task GetBusLocation()
         {
-            
+            foreach(BusLocationResponseData info in await bis.GetBusLocation(new() { BusID = "5201003F00" }))
+            {
+                info.WriteToConsole();
+            }
         }
 
         //[TestMethod]

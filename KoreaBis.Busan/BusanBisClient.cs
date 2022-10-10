@@ -30,15 +30,20 @@ namespace KoreaBis.Busan
         #region BIS API Methods
         public Task<BusStopListResponseData> GetBusStopList(BusStopListRequestData requestData)
         {
-            BusStopListService service = new BusStopListService(this);
-            return service.GetResponse(requestData);
+            return new BusStopListService(this).GetResponse(requestData);
         }
 
         public Task<List<BusInfoResponseData>> GetBusInfo(BusInfoRequestData requestData)
         {
-            BusInfoService service = new BusInfoService(this);
-            return service.GetResponse(requestData);
+            return new BusInfoService(this).GetResponse(requestData);
         }
+
+        public Task<List<BusLocationResponseData>> GetBusLocation(BusLocationRequestData requestData)
+        {
+            return new BusLocationService(this).GetResponse(requestData);
+        }
+
+        
 
         #endregion
 
